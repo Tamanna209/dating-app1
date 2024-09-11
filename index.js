@@ -94,8 +94,8 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const connectDB = require('./config/db');
-const userRoutes = require('./routes/userRoutes');
+const connectDB = require('./config/database');
+const userRoutes = require('./routes/UserRoute');
 
 const app = express();
 const port = 3000;
