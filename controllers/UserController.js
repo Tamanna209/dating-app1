@@ -5,6 +5,11 @@ const jwt = require('jsonwebtoken');
 // JWT Secret
 const JWT_SECRET = 'datingApp1ByNCPL';
 
+
+//get hello msg at home page
+exports.getUser =  async(req, res)=>{
+  res.send(`<h1>Home Page </h1>`)
+}
 // Register a new user
 exports.registerUser = async (req, res) => {
     const { username, email, pno, password } = req.body;
