@@ -3,10 +3,7 @@ const mongoose = require('mongoose');
 // Function to connect to MongoDB
 const connectDB = async () => {
     try {
-        await mongoose.connect('mongodb://localhost:27017/dating-app', {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
+        await mongoose.connect('mongodb://127.0.0.1:27017/dating-app');
         console.log('MongoDB connected');
     } catch (err) {
         console.error(err.message);
