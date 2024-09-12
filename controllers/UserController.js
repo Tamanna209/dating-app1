@@ -8,7 +8,7 @@ const JWT_SECRET = 'datingApp1ByNCPL';
 
 //get hello msg at home page
 exports.getUser =  async(req, res)=>{
-  res.send(`<h1>Home Page </h1>`)
+  res.send("Home Page");
 }
 // Register a new user
 exports.registerUser = async (req, res) => {
