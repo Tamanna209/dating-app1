@@ -98,7 +98,7 @@ const connectDB = require('./config/database');
 const userRoutes = require('./routes/UserRoute');
 
 const app = express();
-const port = 3000;
+const port = 10000;
 
 // Connect to MongoDB
 connectDB();
