@@ -11,7 +11,7 @@ const UserSchema = new mongoose.Schema({
     active: { type: String, default: "1" },
     block: { type: String, default: "0" },
     profile_created: { type: String, default: "0" },
-    app_id: { type: String, default: "@9000001" }
+    app_id: { type: String, unique: true }
 });
 
 // Hash password before saving to the database
