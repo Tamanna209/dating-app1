@@ -105,6 +105,10 @@ exports.registerUser = async (req, res) => {
         if (user) {
             return res.status(400).json({ message: 'User already exists' });
         }
+         // Validate phone number length (must be exactly 10 digits)
+         if (!/^\d{10}$/.test(pno)) {
+            return res.status(400).json({ message: 'Phone number must be exactly 10 digits' });
+        }
           
         // Generate a unique app_id for the user
         const app_id = `@${uuidv4()}`;

@@ -92,24 +92,56 @@
 
 
 
+// const express = require('express');
+// const bodyParser = require('body-parser');
+// const connectDB = require('./config/database');
+// const userRoutes = require('./routes/UserRoute');
+
+// const app = express();
+// const port = 10000;
+
+// // Connect to MongoDB
+// connectDB();
+
+// // Middleware to parse JSON data
+// app.use(bodyParser.json());
+
+// // Use user routes
+// app.use('/api/users', userRoutes);
+
+// // Start the server
+// app.listen(port, () => {
+//     console.log(`Server is running on port ${port}`);
+// });
+
+
+
+//MVC
 const express = require('express');
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const connectDB = require('./config/database');
-const userRoutes = require('./routes/UserRoute');
+// Routes
+const registerRoute = require('./routes/registerRoute');
+const loginRoute = require('./routes/loginRoute');
+const socialLoginRoute = require('./routes/socialLoginRoute');
 
+// Initialize app
 const app = express();
-const port = 10000;
 
-// Connect to MongoDB
-connectDB();
-
-// Middleware to parse JSON data
+// Middleware
 app.use(bodyParser.json());
 
-// Use user routes
-app.use('/api/users', userRoutes);
+// Use routes
+app.use('/api/users', registerRoute);
+app.use('/api/users', loginRoute);
+app.use('/api/users', socialLoginRoute);
+// Connect to MongoDB (replace with your MongoDB URI)
+connectDB();
 
 // Start the server
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
+
